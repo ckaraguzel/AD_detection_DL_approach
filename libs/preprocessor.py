@@ -69,7 +69,7 @@ if __name__ == '__main__':
     INPUT_PATH = 'data/raw'
     preprocessor = Preprocessor()
     # preprocessor.process_directory(INPUT_PATH, INPUT_PATH.replace('raw', 'interim/resized'))
-    array = preprocessor.get_image_array('data/interim/resized/Training/meningioma/Tr-me_0010.jpg')
+    array = preprocessor.get_image_array('data/raw/Mild_Demented/mild_2.jpg')
     print(array.shape)
     print(array)
     print(array.max(), array. min(), array.mean())

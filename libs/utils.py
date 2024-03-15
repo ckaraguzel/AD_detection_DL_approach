@@ -22,7 +22,9 @@ def find_smallest_dimensions(directory):
 
     return smallest_width, smallest_height
 
-def get_metadata(path, data_type):
+def get_metadata(path 
+                 #, data_type
+                 ):
     """
     Extracts metadata from images in a specified directory and returns a DataFrame.
 
@@ -58,7 +60,7 @@ def get_metadata(path, data_type):
             # Append metadata to the list
             data.append({
                 'Path': image_path,
-                'Data': data_type,
+                #'Data': data_type,
                 'Label': category,
                 'Size': size,
                 'Area': area
