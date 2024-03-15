@@ -1,0 +1,15 @@
+pandas
+numpy 
+keras
+matplotlib
+Pillow
+opencv-python #cv2
+seaborn
+scikit-image
+tensorflow
+mlflow
+scikit-tda
+ripser
+persim
+icecream
+#python -m pip install -U giotto-tda

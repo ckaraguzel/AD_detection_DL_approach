@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# other
+data/*
+reports/*
+.DS_Store
+.vscode
+mlruns/*
+mlflow/*
+mlflow_artifacts/*
