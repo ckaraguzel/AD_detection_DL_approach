@@ -31,9 +31,9 @@ df_preprocessed = get_metadata("data/interim/resized")
 # print the df head
 ic(df_preprocessed.head())
 
-# Save the DataFrame to a CSV file
-df_preprocessed.to_csv('reports/image_sizes_labels_and_data_preprocessed.csv', index=False)
-
 # Get the image array for each image and add it to the data frame with metadata
 df_preprocessed['Image_array'] = df_preprocessed['Path'].apply(lambda x: preprocessor.get_image_array(x))
+
+# Save the DataFrame to a CSV file
+df_preprocessed.to_csv('data/interim/resized/image_metadata_and_array.csv', index=False)
 
