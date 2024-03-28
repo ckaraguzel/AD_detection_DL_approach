@@ -70,8 +70,8 @@ class Preprocessor:
 if __name__ == '__main__':
     INPUT_PATH = 'data-ADNI/raw'
     preprocessor = Preprocessor()
-    preprocessor.process_directory(INPUT_PATH, INPUT_PATH.replace('interim', 'resized'))
-    array = preprocessor.get_image_array('/Users/cisilkaraguzel/Documents/GitHub/AD_detection_DL_approach/data-ADNI/interim/MCI/ADNI_002_S_0782_MR_3-plane_localizer__br_raw_20090904154800118_2_S73353_I154515.dcm')
-    print(array.shape)
+    #preprocessor.process_directory(INPUT_PATH, INPUT_PATH.replace('interim', 'resized'))
+    array = preprocessor.get_image_array('data-ADNI/interim/MCI/ADNI_002_S_0782_MR_3-plane_localizer__br_raw_20090904154800118_2_S73353_I154515.dcm')
     print(array)
+    print(array.shape)
     print(array.max(), array. min(), array.mean())

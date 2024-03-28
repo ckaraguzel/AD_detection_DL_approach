@@ -2,6 +2,8 @@ import cv2
 import os
 import pandas as pd
 import shutil
+import numpy as np
+import pydicom
 
 import sys
 sys.path.append(os.getcwd())
@@ -49,3 +51,51 @@ def save_images_to_new_folder(data_paths, new_folder_path):
         # Copy the file to the new folder
         shutil.copy(data_path, os.path.join(new_folder_path, filename))
         
+
+def crop_black_frame(dicom_path):
+    # Read DICOM file
+    dicom_data = pydicom.dcmread(dicom_path)
+    
+    # Extract pixel data
+    image_array = dicom_data.pixel_array
+    
+    # Convert to uint8 format for OpenCV compatibility
+    image_uint8 = (image_array / np.max(image_array) * 255).astype(np.uint8)
+    
+    # Apply adaptive thresholding
+    _, binary_image = cv2.threshold(image_uint8, 20, 255, cv2.THRESH_BINARY)
+    
+    # Find contours
+    contours, _ = cv2.findContours(binary_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    
+    # Check if any contour is found
+    if len(contours) == 0:
+        raise ValueError("No black frame found.")
+    
+    # Get the bounding box of the largest contour (assumed to be the black frame)
+    max_contour = max(contours, key=cv2.contourArea)
+    x, y, w, h = cv2.boundingRect(max_contour)
+    
+    # Crop the image using the bounding box
+    cropped_image = image_array[y:y+h, x:x+w]
+
+    return cropped_image
+
+
+try:
+    cropped_image = crop_black_frame(dicom_file)
+    
+    # Save cropped image as a new DICOM file
+    dicom_data = pydicom.dcmread(dicom_file)
+    dicom_data.PixelData = cropped_image.tobytes()
+    dicom_data.Rows, dicom_data.Columns = cropped_image.shape
+    dicom_data.save_as(output_file)
+    
+    print("Cropped image saved as:", output_file)
+except ValueError as e:
+    print("Error:", e)
+
+# Example usage
+#dicom_file = "/Users/cisilkaraguzel/Documents/GitHub/AD_detection_DL_approach/data-ADNI/raw/All_AD_3loc_T1_axial/ADNI/002_S_0619/3-plane_localizer/2008-08-13_15_18_48.0/I116116/ADNI_002_S_0619_MR_3-plane_localizer__br_raw_20080813225809528_1_S55371_I116116.dcm"  # Replace with your DICOM file path
+#output_file = "cropped_image.dcm"  # Path to save the cropped DICOM image
+
