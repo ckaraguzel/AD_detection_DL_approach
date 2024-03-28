@@ -23,7 +23,7 @@ if not os.path.exists('reports'):
 
 # Preprocess the training and testing data
 preprocessor = Preprocessor()
-preprocessor.process_directory(INPUT_PATH, INPUT_PATH.replace('raw', 'interim/resized'))
+preprocessor.process_directory(INPUT_PATH, INPUT_PATH.replace('raw', 'resized'))
 
 #Create DataFrames with metadata of preprocessed data (all combined)
 df_preprocessed = get_metadata("data/interim/resized")

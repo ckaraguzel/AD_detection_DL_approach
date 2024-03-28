@@ -35,7 +35,7 @@ class Preprocessor:
     def process_directory(self, input_directory, output_directory):
         for subdir, _, files in os.walk(input_directory):
             for file in files:
-                if file.lower().endswith(('.png', '.jpg', '.jpeg')):
+                if file.lower().endswith(('.dcm')):
                     image_path = os.path.join(subdir, file)
                     processed_image = self.process_image(image_path)
 
@@ -68,10 +68,10 @@ class Preprocessor:
 # preprocessor = Preprocessor()
 # preprocessor.process_directory('path/to/input/directory', 'path/to/output/directory')
 if __name__ == '__main__':
-    INPUT_PATH = 'data/raw'
+    INPUT_PATH = 'data-ADNI/raw'
     preprocessor = Preprocessor()
-    # preprocessor.process_directory(INPUT_PATH, INPUT_PATH.replace('raw', 'interim/resized'))
-    array = preprocessor.get_image_array('data/raw/Mild_Demented/mild_2.jpg')
+    preprocessor.process_directory(INPUT_PATH, INPUT_PATH.replace('interim', 'resized'))
+    array = preprocessor.get_image_array('/Users/cisilkaraguzel/Documents/GitHub/AD_detection_DL_approach/data-ADNI/interim/MCI/ADNI_002_S_0782_MR_3-plane_localizer__br_raw_20090904154800118_2_S73353_I154515.dcm')
     print(array.shape)
     print(array)
     print(array.max(), array. min(), array.mean())
