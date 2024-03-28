@@ -82,20 +82,3 @@ def crop_black_frame(dicom_path):
     return cropped_image
 
 
-try:
-    cropped_image = crop_black_frame(dicom_file)
-    
-    # Save cropped image as a new DICOM file
-    dicom_data = pydicom.dcmread(dicom_file)
-    dicom_data.PixelData = cropped_image.tobytes()
-    dicom_data.Rows, dicom_data.Columns = cropped_image.shape
-    dicom_data.save_as(output_file)
-    
-    print("Cropped image saved as:", output_file)
-except ValueError as e:
-    print("Error:", e)
-
-# Example usage
-#dicom_file = "/Users/cisilkaraguzel/Documents/GitHub/AD_detection_DL_approach/data-ADNI/raw/All_AD_3loc_T1_axial/ADNI/002_S_0619/3-plane_localizer/2008-08-13_15_18_48.0/I116116/ADNI_002_S_0619_MR_3-plane_localizer__br_raw_20080813225809528_1_S55371_I116116.dcm"  # Replace with your DICOM file path
-#output_file = "cropped_image.dcm"  # Path to save the cropped DICOM image
-
