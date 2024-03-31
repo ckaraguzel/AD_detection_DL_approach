@@ -17,10 +17,10 @@ venv.bak/
 data/*
 data-ADNI/*
 dataset_ADNI/*
+data-ADNI-revised/*
 reports/*
 .DS_Store
 .vscode
 mlruns/*
 mlflow/*
 mlflow_artifacts/*
-new_dataset_eda/*
