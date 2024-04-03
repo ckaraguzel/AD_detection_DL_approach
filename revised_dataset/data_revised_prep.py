@@ -82,15 +82,21 @@ def crop_black_frame(dicom_path):
 
     return cropped_image
 
-def plot_dicom_image(dicom_file_path):
-    # Read the DICOM file
-    ds = pydicom.dcmread(dicom_file_path)
+# next function plots the images starting from i to t+num_images next to each other.
+def plot_new_dicom_images(dicom_file_paths, num_images=5, i=0):
+    num_images = min(num_images, len(dicom_file_paths))
+    fig, axes = plt.subplots(1, num_images, figsize=(5*num_images, 5))
 
-    # Extract the pixel data
-    pixel_data = ds.pixel_array
+    for i, dicom_file_path in enumerate(dicom_file_paths[i:i+num_images]):
+        # Read the DICOM file
+        ds = pydicom.dcmread(dicom_file_path)
 
-    # Plot the image
-    plt.imshow(pixel_data, cmap=plt.cm.bone)
-    plt.axis('off')  # Turn off axis
+        # Extract the pixel data
+        pixel_data = ds.pixel_array
+
+        # Plot the image
+        axes[i].imshow(pixel_data, cmap=plt.cm.bone)
+        axes[i].axis('off')  # Turn off axis
+
     plt.show()
 
