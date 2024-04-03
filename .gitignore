@@ -17,7 +17,7 @@ venv.bak/
 data/*
 data-ADNI/*
 dataset_ADNI/*
-data-ADNI-revised/*
+data-ADNI3-revised/*
 reports/*
 .DS_Store
 .vscode
