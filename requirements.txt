@@ -12,4 +12,5 @@ scikit-tda
 ripser
 persim
 icecream
+pydicom
 #python -m pip install -U giotto-tda

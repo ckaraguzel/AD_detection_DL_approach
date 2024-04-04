@@ -22,4 +22,5 @@ mlruns/*
 mlflow/*
 mlflow_artifacts/*
 data-ADNI3-revised/*
-revised_dataset/*
+data-ADNI1-revised/*
+data-ADNIGO_ADNI2-revised/*
