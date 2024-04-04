@@ -98,15 +98,15 @@ def plot_new_dicom_images(dicom_file_paths, num_images=5, i=0):
         axes[i].axis('off')  # Turn off axis
     plt.show()
 
-def plot_dicom_images(pixel_arrays):
-    num_images = len(pixel_arrays)
-    fig, axes = plt.subplots(1, num_images, figsize=(15, 5))  # Adjust figsize as needed
+#def plot_dicom_images(pixel_arrays):
+ #   num_images = len(pixel_arrays)
+  #  fig, axes = plt.subplots(1, num_images, figsize=(15, 5))  # Adjust figsize as needed
 
-    for i in range(num_images):
-        axes[i].imshow(pixel_arrays[i], cmap='gray')
-        axes[i].axis('off')
+   # for i in range(num_images):
+    #    axes[i].imshow(pixel_arrays[i], cmap='gray')
+    #   axes[i].axis('off')
 
-    plt.show()
+    #plt.show()
 
 def get_instance_number(dicom_file_path):
     # Read DICOM file
