@@ -137,3 +137,20 @@ def get_instance_number(dicom_file_path):
 #        sorted_data_paths.append(sorted(get_filtrated_data_paths(data_folder_path, [id]),key = lambda path: get_instance_number(path)))
 
 #    return sorted_data_paths
+
+def get_pixel_array(data_path):
+    path = pydicom.dcmread(data_path)
+    # Extract pixel data
+    image_array = path.pixel_array
+    return image_array
+
+def generate_pixels(sorted_paths):
+    pixel = []
+    for j in range(0, len(sorted_paths)):
+        j_pixel = []  # Create an empty list for each j iteration
+        for i in range(64, 129):
+            ds = pydicom.dcmread(sorted_paths[j][i])
+            pixel_arr = ds.pixel_array
+            j_pixel.append(pixel_arr)  # Append each pixel array to j_pixel
+        pixel.append(j_pixel)
+    return pixel
