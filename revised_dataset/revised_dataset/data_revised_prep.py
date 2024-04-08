@@ -39,6 +39,24 @@ def get_filtrated_data_paths(data_folder, list_im_id):
         filtered_data_paths= [path for path in data_paths if any(path.endswith(suffix+".dcm") for suffix in list_im_id)]
         return filtered_data_paths
 
+def get_new_filtered_data_paths(data_folder, list_im_id):
+    data_paths = []
+
+    # Walk through the directory tree
+    for root, dirs, files in os.walk(data_folder):
+        for file in files:
+            if file.endswith('.dcm'):  # Filter out files with .dcm extension
+                full_path = os.path.join(root, file)
+                data_paths.append(full_path)
+
+    filtered_data_paths = []
+    for suffix in list_im_id:
+        paths_with_suffix = [path for path in data_paths if path.endswith(suffix + ".dcm")]
+        filtered_data_paths.append(paths_with_suffix)
+
+    return filtered_data_paths
+
+
 def save_images_to_new_folder(data_paths, new_folder_path):
     # Ensure the new folder exists, create it if not
     if not os.path.exists(new_folder_path):
@@ -98,16 +116,6 @@ def plot_new_dicom_images(dicom_file_paths, num_images=5, i=0):
         axes[i].axis('off')  # Turn off axis
     plt.show()
 
-#def plot_dicom_images(pixel_arrays):
- #   num_images = len(pixel_arrays)
-  #  fig, axes = plt.subplots(1, num_images, figsize=(15, 5))  # Adjust figsize as needed
-
-   # for i in range(num_images):
-    #    axes[i].imshow(pixel_arrays[i], cmap='gray')
-    #   axes[i].axis('off')
-
-    #plt.show()
-
 def get_instance_number(dicom_file_path):
     # Read DICOM file
     dicom_data = pydicom.dcmread(dicom_file_path)
@@ -118,3 +126,14 @@ def get_instance_number(dicom_file_path):
 
     # If the instance number tag is not available, return None or raise an exception
     return None
+
+#def sort_data_paths(data_folder_path, id_list):
+     #takes data folder path and list of image id's and returns sorted paths according to MRI slices.
+     #id_list is a list of image id's.
+     #data_folder_path
+#    sorted_data_paths= []
+    
+#    for id in id_list:
+#        sorted_data_paths.append(sorted(get_filtrated_data_paths(data_folder_path, [id]),key = lambda path: get_instance_number(path)))
+
+#    return sorted_data_paths
