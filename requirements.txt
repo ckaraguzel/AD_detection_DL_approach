@@ -13,3 +13,10 @@ ripser
 persim
 icecream
 #python -m pip install -U giotto-tda
+
+# Added for skull removal:
+ants
+antspynet
+ipywidgets
+SimpleITK
+nibabel
