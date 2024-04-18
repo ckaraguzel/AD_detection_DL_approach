@@ -11,9 +11,7 @@ sys.path.append(os.getcwd())
 
 import numpy as np
 from icecream import ic
-#import matplotlib.pyplot as plt
-#from libs.preprocessor import Preprocessor
-#from libs.utils import *
+
 
 def remove_duplicates(df):
     # Convert "Acq Date" column to datetime format
@@ -26,18 +24,18 @@ def remove_duplicates(df):
         new_df = df_sorted.drop_duplicates(subset='Subject', keep='first')
         return new_df
 
-def get_filtrated_data_paths(data_folder, list_im_id):
-        data_paths = []
+#def get_filtrated_data_paths(data_folder, list_im_id):
+#        data_paths = []
 
         # Walk through the directory tree
-        for root, dirs, files in os.walk(data_folder):
-            for file in files:
-                if file.endswith('.dcm'):  # Filter out files with .dcm extension
-                    full_path = os.path.join(root, file)
-                    data_paths.append(full_path)
+#        for root, dirs, files in os.walk(data_folder):
+#            for file in files:
+#                if file.endswith('.dcm'):  # Filter out files with .dcm extension
+#                    full_path = os.path.join(root, file)
+#                    data_paths.append(full_path)
 
-        filtered_data_paths= [path for path in data_paths if any(path.endswith(suffix+".dcm") for suffix in list_im_id)]
-        return filtered_data_paths
+#        filtered_data_paths= [path for path in data_paths if any(path.endswith(suffix+".dcm") for suffix in list_im_id)]
+#        return filtered_data_paths
 
 def get_new_filtered_data_paths(data_folder, list_im_id):
     data_paths = []
@@ -55,7 +53,6 @@ def get_new_filtered_data_paths(data_folder, list_im_id):
         filtered_data_paths.append(paths_with_suffix)
 
     return filtered_data_paths
-
 
 def save_images_to_new_folder(data_paths, new_folder_path):
     # Ensure the new folder exists, create it if not
@@ -126,17 +123,6 @@ def get_instance_number(dicom_file_path):
 
     # If the instance number tag is not available, return None or raise an exception
     return None
-
-#def sort_data_paths(data_folder_path, id_list):
-     #takes data folder path and list of image id's and returns sorted paths according to MRI slices.
-     #id_list is a list of image id's.
-     #data_folder_path
-#    sorted_data_paths= []
-    
-#    for id in id_list:
-#        sorted_data_paths.append(sorted(get_filtrated_data_paths(data_folder_path, [id]),key = lambda path: get_instance_number(path)))
-
-#    return sorted_data_paths
 
 def get_pixel_array(data_path):
     path = pydicom.dcmread(data_path)
