@@ -24,6 +24,7 @@ mlflow_artifacts/*
 data-ADNI3-revised/*
 data-ADNI1-revised/*
 data-ADNIGO_ADNI2-revised/*
+raw/*
 pixels*.pkl
 3_ASMP*.csv
 Age*.csv
