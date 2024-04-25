@@ -6,6 +6,13 @@ The goal of this project is to predict Alzheimer's disease from structural brain
 ## Dataset
 The dataset used in this project consists of structural brain MRI scans. The dataset is preprocessed and split into training and test sets.
 
+## Installation
+1. Clone the repository:
+git clone https://github.com/ckaraguzel/AD_detection_DL_approach.git
+2. Install the required dependencies: 
+pip install -r requirements.txt 
+3. Download data from [Alzheimer's Disease Neuroimaging Initiative (ADNI)](https://adni.loni.usc.edu/data-samples/access-data/). This data is publicly available, however it requires an application to access the data.
+
 ## Preprocessing
 The preprocessing step involves the following tasks:
 1. Remove the dark frame surrounding the MRI scans.
