@@ -44,6 +44,7 @@ This project demonstrates the use of deep learning and machine learning techniqu
 - Experiment with different CNN architectures and hyperparameter tuning to improve model performance.
 - Investigate the effectiveness of other machine learning algorithms in combination with CNN features.
 - Expand the dataset to include more diverse samples and stages of Alzheimer's disease.
+- Explore a multi-modal approach by incorporating other types of data, such as clinical information, genetic data, or cognitive test results, to enhance the predictive power of the models. This can provide a more comprehensive understanding of Alzheimer's disease and potentially improve the accuracy of the predictions.
 
 
 ## References
