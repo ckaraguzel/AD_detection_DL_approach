@@ -1,10 +1,10 @@
 # Alzheimer's Disease Prediction from Structural Brain MRI
 
 ## Goal
-The goal of this project is to predict Alzheimer's disease from structural brain MRI (Magnetic Resonance Imaging) scans. We aim to classify early Alzheimer's disease into two classes: Non-Demented and Very Mild Demented.
+The goal of this project is to predict Alzheimer's disease from structural brain MRI (Magnetic Resonance Imaging) scans. We aim to classify early Alzheimer's disease into two classes: Cognitively Normal and Mild Cognitive Impairment.
 
 ## Dataset
-The dataset used in this project consists of structural brain MRI scans. The dataset is preprocessed and split into training and test sets.
+The dataset used in this project consists of structural brain MRI scans. The dataset is preprocessed and split into training, validation and test sets.
 
 ## Installation
 1. Clone the repository:
