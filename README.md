@@ -24,7 +24,7 @@ We train two models for Alzheimer's disease prediction:
 1. Convolutional Neural Network (CNN):
    - The CNN model is implemented using PyTorch.
    - The architecture of the CNN model is defined in `notebooks/model1.py`.
-   - Weighted loss function, L1 regularization and Dropout is used to avoid overfitting.
+   - Weighted loss function, L1 regularization and Dropout are used to avoid overfitting.
 
 2. CNN + XGBoost:
    - The CNN model is used as a feature extractor, and the extracted features are then fed into an XGBoost classifier.
