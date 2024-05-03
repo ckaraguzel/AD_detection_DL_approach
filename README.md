@@ -23,18 +23,21 @@ The preprocessing step involves the following tasks:
 We train two models for Alzheimer's disease prediction:
 1. Convolutional Neural Network (CNN):
    - The CNN model is implemented using PyTorch.
-   - The architecture of the CNN model is defined in `notebooks/model.py`.
+   - The architecture of the CNN model is defined in `notebooks/model1.py`.
+   - Weighted loss function, L1 regularization and Dropout is used to avoid overfitting.
 
 2. CNN + XGBoost:
    - The CNN model is used as a feature extractor, and the extracted features are then fed into an XGBoost classifier.
    - The CNN model is trained using PyTorch, and the XGBoost classifier is trained using the XGBoost library.
-   - The training notebook for the CNN + XGBoost model: `notebooks/XGBoosted_ADNI.ipynb`.
+   - The training notebook for the CNN + XGBoost model: `notebooks/model2.py`.
+   - Weighted loss function is used to avoid overfitting in addition to the pretrained CNN part.
 
 ## Evaluation
 The trained models are evaluated on the test set using AUC(Area Under the Curve) as the evaluation metric.
 
 ## Results
-The results of the model evaluation will be added here once available.
+- Model 1 (CNN): AUC: 0.58 from MRI images only.
+- Model 2 (CNN + XGBoost): AUC: 0.61 from MRI images, age and sex data.
 
 ## Conclusion
 This project demonstrates the use of deep learning and machine learning techniques for predicting Alzheimer's disease from structural brain MRI scans. The combination of CNN and XGBoost models shows promising results in accurately classifying early Alzheimer's disease.
