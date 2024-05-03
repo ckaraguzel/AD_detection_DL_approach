@@ -11,13 +11,13 @@ The dataset used in this project consists of structural brain MRI scans. The dat
 git clone https://github.com/ckaraguzel/AD_detection_DL_approach.git
 2. Install the required dependencies: 
 pip install -r requirements.txt 
-3. Download data from [Alzheimer's Disease Neuroimaging Initiative (ADNI)](https://adni.loni.usc.edu/data-samples/access-data/). This data is publicly available, however it requires an application to access the data.
+3. Data is from [Alzheimer's Disease Neuroimaging Initiative (ADNI)](https://adni.loni.usc.edu/data-samples/access-data/), more specifically ADNI3 study. This data is publicly available, however it requires an application to access the data.
 
 ## Preprocessing
 The preprocessing step involves the following tasks:
-1. Remove the dark frame surrounding the MRI scans.
-2. Remove the skull from the MRI scans.
-3. Split the preprocessed dataset into training and test folders with a ratio of 0.2.
+1. Keep one MRI session per subject.
+2. Order the slices in each session and filter only middle 65 slices.  
+3. Split the preprocessed dataset into training, validation and test folders.
 
 ## Model Training
 We train two models for Alzheimer's disease prediction:
@@ -48,6 +48,6 @@ This project demonstrates the use of deep learning and machine learning techniqu
 
 
 ## References
-- [Alzheimer's Disease Neuroimaging Initiative (ADNI)](http://adni.loni.usc.edu/)
+- [Alzheimer's Disease Neuroimaging Initiative (ADNI) database, ADNI3 study](http://adni.loni.usc.edu/) (https://adni.loni.usc.edu/wp-content/uploads/how_to_apply/ADNI_Acknowledgement_List.pdf)
 - [PyTorch Documentation](https://pytorch.org/docs/stable/index.html)
 - [XGBoost Documentation](https://xgboost.readthedocs.io/)
