@@ -29,11 +29,13 @@ We train two models for Alzheimer's disease prediction:
 2. CNN + XGBoost v1:
    - The CNN model is used as a feature extractor, and the extracted features are then fed into an XGBoost classifier along with age and sex..
    - The CNN model is trained using PyTorch, and the XGBoost classifier is trained using the XGBoost library.
-   - The training notebook for the CNN + XGBoost model: `models/model2.py`.
+   - The training script for the CNN + XGBoost v1 model: `models/model2.py`.
    - Weighted loss function is used to avoid overfitting in addition to the pretrained CNN part.
+   
 
 3. CNN + XGBoost v2: 
-   - CNN model used to classify the MRIs, and the probability out is used as an input to XGBoost classifier along with age and sex. 
+   - CNN model used to classify the MRIs, and the probability out is used as an input to XGBoost classifier along with age and sex.
+   - The training script for the CNN + XGBoost v2 model: `models/model3.py`.
 
 
 ## Evaluation
