@@ -23,22 +23,26 @@ The preprocessing step involves the following tasks:
 We train two models for Alzheimer's disease prediction:
 1. Convolutional Neural Network (CNN):
    - The CNN model is implemented using PyTorch.
-   - The architecture of the CNN model is defined in `src/model/model_CNN.py`.
+   - The architecture of the CNN model is defined in `models/model1.py`.
    - Weighted loss function, L1 regularization and Dropout are used to avoid overfitting.
 
-2. CNN + XGBoost:
-   - The CNN model is used as a feature extractor, and the extracted features are then fed into an XGBoost classifier.
+2. CNN + XGBoost v1:
+   - The CNN model is used as a feature extractor, and the extracted features are then fed into an XGBoost classifier along with age and sex..
    - The CNN model is trained using PyTorch, and the XGBoost classifier is trained using the XGBoost library.
-   - The training notebook for the CNN + XGBoost model: `src/model/XGBoosted_CNN.ipynb`.
+   - The training notebook for the CNN + XGBoost model: `models/model2.py`.
    - Weighted loss function is used to avoid overfitting in addition to the pretrained CNN part.
+
+3. CNN + XGBoost v2: 
+   - CNN model used to classify the MRIs, and the probability out is used as an input to XGBoost classifier along with age and sex. 
+
 
 ## Evaluation
 The trained models are evaluated on the test set using AUC(Area Under the Curve) as the evaluation metric.
 
 ## Results
 - Model 1 (CNN): Trained a CNN Classifier to classify the MRI scans. AUC: 0.58
-- Model 2 (CNN + XGBoost): Trained a CNN for representing MRIs in 65 features, and trained an XGBoost model with these features along with age and sex data. AUC: 0.61
-- Model 3 (CNN + XGBoost): Trained a CNN classifier and used its probability output as an input for XGBoost along with age and sex data. AUC: 0.59
+- Model 2 (CNN + XGBoost v1): Trained a CNN for representing MRIs in 65 features, and trained an XGBoost model with these features along with age and sex data. AUC: 0.61
+- Model 3 (CNN + XGBoost v2): Trained a CNN classifier and used its probability output as an input for XGBoost along with age and sex data. AUC: 0.59
 
 ## Conclusion
 This project demonstrates the use of deep learning and machine learning techniques for predicting Alzheimer's disease from structural brain MRI scans. The combination of CNN and XGBoost models shows promising results in accurately classifying early Alzheimer's disease. The performance can be improved by further image preprocessing and model optimization as well as adding more examples to the training set.

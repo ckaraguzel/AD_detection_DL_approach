@@ -1,0 +1,33 @@
+.
+├── data
+│   └── data-ADNI
+│       ├── Train_test_split
+│       ├── interim
+│       ├── metadata
+│       ├── pkls
+│       └── zips
+├── libs
+│   └── __init__.py
+├── models
+│   ├── model1.py 
+│   ├── model2.py
+│   └── model3.py
+├── revised_dataset
+│   └── revised_dataset
+└── src
+    ├── data
+    │   ├── Create_Val_Test_Train.py
+    │   ├── DL_probs.py
+    │   ├── data_descriptions.ipynb
+    │   ├── data_revised_prep.ipynb
+    │   ├── data_revised_prep.py
+    │   └── vectorized_data.py
+    └── model
+        ├── Create_Test_Train.py
+        ├── Imports.py
+        ├── MCI_CN.ipynb
+        ├── XGBoosted_CNN.ipynb
+        ├── adni-ad.ipynb
+        ├── alzheimer-s-detection.ipynb
+        └── model_CNN.py
+
